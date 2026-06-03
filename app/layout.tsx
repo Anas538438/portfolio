@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://muhammad-anas.vercel.app'),
+  metadataBase: new URL('https://portfolio-zeta-sage-92.vercel.app'),
   title: 'Muhammad Anas — Full-Stack Engineer · React · Laravel · AI',
   description:
     'Full-stack engineer in Tarbela, Pakistan. React, Laravel, AI. Available for freelance projects.',
