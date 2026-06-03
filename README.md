@@ -23,41 +23,4 @@ Personal portfolio website for **Muhammad Anas**, Full-Stack Engineer (React · 
 5. **Portfolio** — 6 projects with category filter
 6. **Contact** — wired contact form (sends email via Resend)
 
-## Running locally
 
-```bash
-npm install
-npm run dev
-```
-
-Open http://localhost:3000
-
-## Environment variables
-
-Create a `.env.local` file:
-
-```
-RESEND_API_KEY=your_resend_api_key
-```
-
-## Making changes
-
-| What | File |
-|---|---|
-| Experience / Education | `components/Resume.tsx` |
-| Portfolio projects | `components/Portfolio.tsx` |
-| Personal info | `components/About.tsx` |
-| Hero text / stats | `components/Hero.tsx` |
-| Services | `components/Services.tsx` |
-| Profile photo | `public/anas.png` |
-| CV file | `public/Anas_resume.pdf` |
-
-After any change:
-
-```bash
-git add .
-git commit -m "your message"
-git push
-```
-
-Vercel auto-redeploys on every push.
