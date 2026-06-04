@@ -64,7 +64,7 @@ export default function Sidebar({ active }: { active: string }) {
             {Icons.github}
           </a>
           <a
-            href="https://linkedin.com/in/muhammad-anas"
+            href="https://www.linkedin.com/in/muhammad-anas-9248b5283/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

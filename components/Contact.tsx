@@ -77,7 +77,7 @@ export default function Contact() {
             </div>
           </div>
           <a
-            href="https://linkedin.com/in/muhammad-anas"
+            href="https://www.linkedin.com/in/muhammad-anas-9248b5283/"
             className="ci"
             target="_blank"
             rel="noopener noreferrer"
