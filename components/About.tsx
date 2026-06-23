@@ -29,10 +29,6 @@ export default function About() {
             <span className="v">anas538438@gmail.com</span>
           </div>
           <div className="kv">
-            <span className="k">Phone</span>
-            <span className="v">+92 348 5489421</span>
-          </div>
-          <div className="kv">
             <span className="k">Languages</span>
             <span className="v">English, Urdu</span>
           </div>

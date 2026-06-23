@@ -59,13 +59,6 @@ export default function Contact() {
               <div className="val">anas538438@gmail.com</div>
             </div>
           </a>
-          <a href="tel:+923485489421" className="ci">
-            <div className="ico">{Icons.phone}</div>
-            <div>
-              <div className="lbl">Phone</div>
-              <div className="val">+92 348 5489421</div>
-            </div>
-          </a>
           <div className="ci" style={{ cursor: 'default' }}>
             <div className="ico">{Icons.pin}</div>
             <div>
