@@ -35,7 +35,7 @@ body {
 /* ===== Layout shell ===== */
 .shell {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 380px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -296,6 +296,7 @@ body {
 /* ===== Main content ===== */
 .main {
   padding: 0;
+  min-width: 0;
 }
 
 .v2section {
@@ -864,6 +865,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 100%;
+  min-width: 0;
+  padding: 12px 0;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     to right,
@@ -1370,7 +1373,7 @@ button:focus-visible {
 /* ===== Responsive ===== */
 @media (max-width: 1100px) {
   .shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .sidebar {
     position: relative;
