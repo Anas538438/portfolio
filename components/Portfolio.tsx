@@ -125,75 +125,14 @@ const all: Project[] = [
 
 const cats = ['All', 'Full-Stack', 'E-Commerce', 'WordPress', 'Frontend', 'AI / ML'] as const;
 
-const catColors: Record<string, string> = {
-  'Full-Stack': '#ffb400',
-  'E-Commerce': '#60a5fa',
-  'WordPress': '#a78bfa',
-  'Frontend': '#34d399',
-  'AI / ML': '#f472b6',
-};
-
-function ProjectCard({ it }: { it: Project }) {
-  return (
-    <a
-      href={it.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="marquee-card"
-    >
-      <div className="marquee-card-inner">
-        {it.img ? (
-          <div className="marquee-thumb">
-            <Image
-              src={it.img}
-              alt={it.name}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="320px"
-            />
-          </div>
-        ) : (
-          <div className="marquee-thumb marquee-thumb-empty" />
-        )}
-        <div className="marquee-body">
-          <span
-            className="marquee-cat"
-            style={{ color: catColors[it.cat] || 'var(--v2-accent)', background: `${catColors[it.cat] || 'var(--v2-accent)'}18` }}
-          >
-            {it.cat}
-          </span>
-          <h4>{it.name}</h4>
-          <p>{it.desc}</p>
-          <div className="marquee-stack">{it.stack}</div>
-        </div>
-      </div>
-    </a>
-  );
-}
-
-function MarqueeRow({ items, reverse }: { items: Project[]; reverse?: boolean }) {
-  const doubled = [...items, ...items];
-  return (
-    <div className="marquee-row-wrap">
-      <div className={`marquee-track ${reverse ? 'marquee-reverse' : ''}`}>
-        {doubled.map((it, i) => (
-          <ProjectCard key={`${it.name}-${i}`} it={it} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Portfolio() {
   const [filter, setFilter] = useState('All');
   useReveal();
 
-  const filtered = filter === 'All' ? all : all.filter((i) => i.cat === filter);
-  const row1 = filter === 'All' ? all.slice(0, Math.ceil(all.length / 2)) : filtered;
-  const row2 = filter === 'All' ? all.slice(Math.ceil(all.length / 2)) : filtered;
+  const items = filter === 'All' ? all : all.filter((i) => i.cat === filter);
 
   return (
-    <section className="v2section port-section" id="portfolio">
+    <section className="v2section" id="portfolio">
       <div className="v2-eyebrow v2reveal">05 · PORTFOLIO</div>
       <h2 className="v2-title v2reveal">
         Selected <em>work</em>.
@@ -214,9 +153,42 @@ export default function Portfolio() {
         ))}
       </div>
 
-      <div className="v2reveal v2reveal-d3">
-        <MarqueeRow items={row1} />
-        {row2.length > 0 && <MarqueeRow items={row2} reverse />}
+      <div className="port-grid v2reveal v2reveal-d3">
+        {items.map((it) => (
+          <a
+            key={it.name}
+            className="port-card"
+            href={it.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            {it.img ? (
+              <div className="thumb" style={{ position: 'relative' }}>
+                <Image
+                  src={it.img}
+                  alt={it.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 1100px) 100vw, 50vw"
+                />
+              </div>
+            ) : (
+              <div className="thumb" />
+            )}
+            <div className="body">
+              <div className="meta">
+                <span className="cat">{it.cat}</span>
+              </div>
+              <h4>{it.name}</h4>
+              <p>{it.desc}</p>
+              <div className="foot">
+                <span>{it.stack}</span>
+                <div className="arr">{Icons.arrow}</div>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
   );
