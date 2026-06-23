@@ -1,7 +1,3 @@
-'use client';
-
-import { useReveal } from '@/hooks/useReveal';
-
 const services = [
   {
     num: '01',
@@ -30,7 +26,6 @@ const services = [
 ];
 
 export default function Services() {
-  useReveal();
   return (
     <section className="v2section" id="skills">
       <div className="v2-eyebrow v2reveal">04 · WHAT I DO</div>

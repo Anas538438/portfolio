@@ -1,9 +1,4 @@
-'use client';
-
-import { useReveal } from '@/hooks/useReveal';
-
 export default function About() {
-  useReveal();
   return (
     <section className="v2section" id="about">
       <div className="v2-eyebrow v2reveal">02 · ABOUT ME</div>

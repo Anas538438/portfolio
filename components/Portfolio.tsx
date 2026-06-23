@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { useReveal } from '@/hooks/useReveal';
 import { Icons } from './icons';
 
 type Project = {
@@ -13,6 +12,24 @@ type Project = {
   href: string;
   img?: string;
 };
+
+const catColors: Record<string, string> = {
+  'Full-Stack': '#ffb400',
+  'E-Commerce': '#60a5fa',
+  WordPress: '#a78bfa',
+  Frontend: '#34d399',
+  'AI / ML': '#f472b6',
+};
+
+function initials(name: string) {
+  return name
+    .replace(/[^a-zA-Z0-9 ]/g, ' ')
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase())
+    .join('');
+}
 
 const all: Project[] = [
   {
@@ -127,7 +144,6 @@ const cats = ['All', 'Full-Stack', 'E-Commerce', 'WordPress', 'Frontend', 'AI / 
 
 export default function Portfolio() {
   const [filter, setFilter] = useState('All');
-  useReveal();
 
   const items = filter === 'All' ? all : all.filter((i) => i.cat === filter);
 
@@ -174,11 +190,30 @@ export default function Portfolio() {
                 />
               </div>
             ) : (
-              <div className="thumb" />
+              <div
+                className="thumb thumb-mono"
+                style={{
+                  background: `radial-gradient(circle at 30% 25%, ${
+                    catColors[it.cat] || 'var(--v2-accent)'
+                  }33, transparent 60%), var(--v2-bg-card)`,
+                }}
+              >
+                <span style={{ color: catColors[it.cat] || 'var(--v2-accent)' }}>
+                  {initials(it.name)}
+                </span>
+              </div>
             )}
             <div className="body">
               <div className="meta">
-                <span className="cat">{it.cat}</span>
+                <span
+                  className="cat"
+                  style={{
+                    color: catColors[it.cat] || 'var(--v2-accent)',
+                    background: `${catColors[it.cat] || 'var(--v2-accent)'}22`,
+                  }}
+                >
+                  {it.cat}
+                </span>
               </div>
               <h4>{it.name}</h4>
               <p>{it.desc}</p>

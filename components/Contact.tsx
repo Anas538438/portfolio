@@ -1,12 +1,9 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useReveal } from '@/hooks/useReveal';
 import { Icons } from './icons';
 
 export default function Contact() {
-  useReveal();
-
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [msg, setMsg] = useState('');
   const formRef = useRef<HTMLFormElement>(null);

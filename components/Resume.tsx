@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useReveal } from '@/hooks/useReveal';
 import SkillBar from './SkillBar';
 import { Icons } from './icons';
 
@@ -58,7 +57,6 @@ const skills = [
 
 export default function Resume() {
   const [tab, setTab] = useState<'experience' | 'education'>('experience');
-  useReveal();
 
   const items = tab === 'experience' ? experience : education;
 

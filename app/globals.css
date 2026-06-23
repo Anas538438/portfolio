@@ -875,31 +875,26 @@ body {
 
 .port-card .thumb {
   aspect-ratio: 16 / 10;
-  background: repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.025) 0 12px,
-      transparent 12px 24px
-    ),
-    var(--v2-bg-card);
+  background: var(--v2-bg-card);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transition: filter 0.4s;
 }
 
-.port-card .thumb::after {
-  content: 'screenshot';
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--v2-fg-dim);
-  padding: 6px 12px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
+.port-card .thumb-mono span {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 56px;
+  letter-spacing: -0.02em;
+  opacity: 0.9;
 }
 
 .port-card:hover .thumb {
-  filter: brightness(1.15);
+  filter: brightness(1.1);
 }
 
 .port-card .body {

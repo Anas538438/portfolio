@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
+import { useReveal } from '@/hooks/useReveal';
 
 const SECTIONS = ['home', 'about', 'resume', 'skills', 'portfolio', 'contact'];
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const [active, setActive] = useState('home');
+  useReveal();
 
   useEffect(() => {
     const onScroll = () => {
